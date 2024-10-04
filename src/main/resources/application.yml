@@ -2,8 +2,8 @@ spring:
   datasource:
     #url: jdbc:postgresql://localhost:5432/currency_db
     url: jdbc:postgresql://db:5432/currency_db
-    username: root
-    password: root
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
 
