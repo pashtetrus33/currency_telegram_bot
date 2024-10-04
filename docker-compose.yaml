@@ -17,8 +17,7 @@ services:
   bot:
     container_name: telegram_bot
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: https://github.com/pashtetrus33/currency_telegram_bot
     restart: always
     environment:
       BOT_NAME: ${BOT_NAME}
