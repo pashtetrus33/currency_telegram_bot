@@ -1,21 +1,26 @@
+spring:
+  datasource:
+    #url: jdbc:postgresql://localhost:5432/currency_db
+    url: jdbc:postgresql://db:5432/currency_db
+    username: root
+    password: root
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
 telegram:
   bot:
-#    не вписывайте данные, так как можете отправить в публичный репозиторий
-#    используйте переменные среды для установки значений
     username: ${BOT_NAME}
     token: ${BOT_TOKEN}
+    check:
+      price:
+        value: 2
     notify:
       delay:
         value: 10
-        unit: MINUTES
+    unit: MINUTES
+    inactive:
+      days: 30
 
 binance:
   api:
     getPrice: https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT
-
-db:
-  driver:
-    name: org.postgresql.Driver
-  url: jdbc:postgresql://localhost:5432/db
-  user: root
-  password: root

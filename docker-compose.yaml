@@ -1,12 +1,28 @@
 version: '3.8'
+
 services:
   db:
     container_name: pg_container
-    image: postgres
+    image: postgres:12.3
     restart: always
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: db
+      POSTGRES_DB: currency_db
     ports:
       - "5432:5432"
+
+  bot:
+    container_name: telegram_bot
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      BOT_NAME: ${BOT_NAME}
+      BOT_TOKEN: ${BOT_TOKEN}
+      DB_URL: ${DB_URL}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      - db
