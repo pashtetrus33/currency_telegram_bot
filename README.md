@@ -1,4 +1,4 @@
-## Имя бота - @bitcoin_price_telegram_bot
+## Адрес бота [@bitcoin_price_telegram_bot](https://t.me/bitcoin_price_telegram_bot)
 ## Как запустить
 
 При открытии директории через IntelliJ IDEA проект должен автоматически распознаться.
